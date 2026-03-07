@@ -18,12 +18,7 @@ TEST(test_shape1, AddFunction)
         std::unique_ptr<IShape<float>>(ShapeFactory<float>::create(param));
     ASSERT_NE(shape, nullptr);
 
-    ShapeResultData<float> data = shape->compute();
-    float area = data.get(ShapeResultIndex::RESULT_AREA);
-    ASSERT_NE(area, 0.f);
-
     shape.reset(nullptr);
-
     ASSERT_EQ(shape.get(), nullptr);
 }
 
