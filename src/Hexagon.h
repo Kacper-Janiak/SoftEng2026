@@ -13,7 +13,7 @@ using namespace std;
 template<class T>
 class Hexagon : public Shape2D<T> {
 public:
-    inline ShapeResultData<T> compute();
+    inline ShapeResult<T> compute();
 
     inline string print();
 
@@ -22,9 +22,9 @@ public:
 };
 
 template<class T>
-inline ShapeResultData<T> Hexagon<T>::compute() {
+inline ShapeResult<T> Hexagon<T>::compute() {
 
-    ShapeResultData<T> result;
+    ShapeResult<T> result;
 
     T a = this->m_param.get(PARAM_RADIUS);
 
