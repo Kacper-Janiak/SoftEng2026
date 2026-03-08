@@ -8,21 +8,21 @@
 #include <sstream>
 #include <string>
 
-template <class T>
-class Circle : public Shape2D<T> {
+template <class T> class Circle : public Shape2D<T> {
 public:
     inline ShapeResult<T> compute();
     inline std::string print();
     inline Circle(const ShapeParam<T>& param);
 };
 
-template <class T>
-inline ShapeResult<T> Circle<T>::compute() {
+template <class T> inline ShapeResult<T> Circle<T>::compute()
+{
     T radius = this->m_param.get_attrib(PARAM_RADIUS);
     const double PI = 3.14159265358979323846;
 
     // Obliczenia na typie double dla precyzji
-    double area = PI * static_cast<double>(radius) * static_cast<double>(radius);
+    double area =
+        PI * static_cast<double>(radius) * static_cast<double>(radius);
     double perimeter = 2.0 * PI * static_cast<double>(radius);
 
     // Pakowanie wynikow do obiektu ShapeResultData
@@ -33,8 +33,8 @@ inline ShapeResult<T> Circle<T>::compute() {
     return result;
 }
 
-template <class T>
-inline std::string Circle<T>::print() {
+template <class T> inline std::string Circle<T>::print()
+{
     T radius = this->m_param.get_attrib(PARAM_RADIUS);
     ShapeResult<T> result = compute();
 
@@ -50,6 +50,7 @@ inline std::string Circle<T>::print() {
 }
 
 template <class T>
-inline Circle<T>::Circle(const ShapeParam<T>& param) : Shape2D<T>(param) {}
+inline Circle<T>::Circle(const ShapeParam<T>& param): Shape2D<T>(param)
+{}
 
 #endif // CIRCLE_H_
