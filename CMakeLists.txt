@@ -39,6 +39,11 @@ target_include_directories(test_shape1 PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src PR
 add_test(NAME test_shape1 COMMAND test_shape1)
 
 
+add_executable(test_trapeze src/tests/smoke/test_trapeze.cpp)
+target_link_libraries(test_trapeze gtest gtest_main ShapeLib)
+target_include_directories(test_trapeze PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src  PRIVATE ${PROJECT_BINARY_DIR})
+add_test(NAME test_trapeze COMMAND test_trapeze)
+
 
 add_executable(test_pyramid src/tests/smoke/test_pyramid.cpp)
 target_link_libraries(test_pyramid gtest gtest_main ShapeLib)
@@ -50,7 +55,6 @@ add_executable(test_rhombus src/tests/smoke/test_rhombus.cpp)
 target_link_libraries(test_rhombus gtest gtest_main ShapeLib)
 target_include_directories(test_rhombus PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src  PRIVATE ${PROJECT_BINARY_DIR})
 add_test(NAME test_rhombus COMMAND test_rhombus)
-
 
 
 add_executable(test_circle src/tests/smoke/test_circle.cpp)
